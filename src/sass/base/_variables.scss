@@ -1,0 +1,32 @@
+@use "sass:color";
+
+// ألوان عامة
+$primary-color: #e74c3c;
+$secondary-color: #f39c12;
+$dark-color: #2c3e50;
+$light-color: #ecf0f1;
+$white: #ffffff;
+
+// ألوان خاصة بكل بيتزا
+$margherita-color: #e74c3c;
+$vegetables-color: #27ae60;
+$chicken-color: #f39c12;
+
+// دوال الألوان المساعدة
+@function darken-color($color, $amount) {
+  @return color.adjust($color, $lightness: -$amount);
+}
+
+@function lighten-color($color, $amount) {
+  @return color.adjust($color, $lightness: $amount);
+}
+
+// الخطوط
+$font-primary: 'Segoe UI', Tahoma, sans-serif;
+$font-heading: 'Georgia', serif;
+
+// المسافات
+$spacing-sm: 0.5rem;
+$spacing-md: 1rem;
+$spacing-lg: 2rem;
+$spacing-xl: 4rem;

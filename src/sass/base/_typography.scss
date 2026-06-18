@@ -1,0 +1,15 @@
+@use 'variables';
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: variables.$font-heading;
+  font-weight: 700;
+  margin-bottom: variables.$spacing-md;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
+h3 { font-size: 2rem; }
+
+p {
+  margin-bottom: variables.$spacing-md;
+}

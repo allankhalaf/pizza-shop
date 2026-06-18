@@ -1,0 +1,27 @@
+@use '../base/variables';
+@use "sass:color";
+
+.navbar {
+  padding: variables.$spacing-md variables.$spacing-lg;
+  
+  .navbar-brand {
+    font-family: variables.$font-heading;
+    font-size: 1.8rem;
+    color: variables.$primary-color !important;
+    font-weight: bold;
+    
+    &:hover {
+      color: color.adjust(variables.$primary-color, $lightness: 10%) !important;
+    }
+  }
+  
+  .nav-link {
+    font-size: 1.1rem;
+    margin: 0 variables.$spacing-sm;
+    transition: color 0.3s;
+    
+    &:hover {
+      color: variables.$secondary-color !important;
+    }
+  }
+}

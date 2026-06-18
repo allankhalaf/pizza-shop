@@ -1,0 +1,15 @@
+@use '../base/variables';
+
+.about-section {
+  padding: variables.$spacing-xl 0;
+  
+  .timeline {
+    .card {
+      transition: transform 0.3s;
+      
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}

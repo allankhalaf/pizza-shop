@@ -1,0 +1,18 @@
+.carousel-item {
+  img {
+    filter: brightness(0.7);
+  }
+}
+
+.carousel-caption {
+  bottom: 20%;
+  
+  h2 {
+    font-size: 3.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  }
+  
+  p {
+    font-size: 1.3rem;
+  }
+}

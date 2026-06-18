@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مطعم البيتزا الإيطالي - الرئيسية</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Bootstrap + Custom CSS سيتم إضافتهما بواسطة Webpack -->
+
+  
+  <!-- Logo Styles -->
+  <style>
+    .navbar {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%) !important;
+      padding: 0.5rem 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    }
+    .navbar-brand {
+      display: flex !important;
+      align-items: center !important;
+      padding: 3px 10px !important;
+      margin: 0 !important;
+      background: rgba(255,255,255,0.95);
+      border-radius: 8px;
+      text-decoration: none !important;
+      gap: 8px;
+      max-height: 60px;
+      overflow: hidden;
+    }
+    .logo-img {
+      height: 35px !important;
+      width: auto;
+      max-width: 120px;
+      object-fit: contain;
+      display: inline-block !important;
+    }
+    .brand-text {
+      color: #e74c3c;
+      font-weight: 700;
+      font-size: 1.1rem;
+      white-space: nowrap;
+    }
+    .navbar-brand:hover {
+      background: rgba(255,255,255,1);
+    }
+    @media (max-width: 768px) {
+      .logo-img { height: 28px !important; max-width: 100px; }
+      .brand-text { font-size: 0.9rem; }
+      .navbar-brand { padding: 2px 8px !important; }
+    }
+  </style>
+
+
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/logo.png" alt="Logo" class="logo-img" onerror="this.style.display='none'">
+      <span class="brand-text">بيتزا إيطاليا</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">الرئيسية</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pages/about.html">عن المطعم</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="pages/contact.html">تواصل معنا</a>
+        </li>
+      </ul>
+
+      <!-- ✅ رابط السلة - مرة واحدة فقط -->
+      <div class="d-flex align-items-center">
+        <a href="pages/cart.html" class="text-white ms-3 position-relative">
+          <i class="fas fa-shopping-cart fa-lg"></i>
+          <span class="cart-count badge bg-danger position-absolute top-0 start-100 translate-middle">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <!-- ✅ Hero Slider (بدل الكاروسيل) -->
+  <section class="hero-section">
+    <div id="heroSlider" class="hero-slider">
+      <div class="slide active">
+        <img src="images/hero-1.jpg" alt="بيتزا طازجة">
+        <div class="slide-caption">
+          <h2>أطيب بيتزا إيطالية</h2>
+          <p>نكهة أصيلة من قلب إيطاليا</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/hero-2.jpg" alt="مكونات طازجة">
+        <div class="slide-caption">
+          <h2>مكونات طازجة يوميًا</h2>
+          <p>نختار أفضل المكونات لكم</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/hero-3.jpg" alt="توصيل سريع">
+        <div class="slide-caption">
+          <h2>توصيل سريع</h2>
+          <p>طلبك يصل حارًا وسريعًا</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/hero-4.jpg" alt="عروض خاصة">
+        <div class="slide-caption">
+          <h2>عروض لا تُفوَّت</h2>
+          <p>خصومات حصرية كل أسبوع</p>
+        </div>
+      </div>
+
+      <!-- المؤشرات -->
+      <div class="slider-dots">
+        <button class="slider-dot active"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+        <button class="slider-dot"></button>
+      </div>
+
+      <!-- الأسهم -->
+      <button class="slider-prev"><i class="fas fa-chevron-right"></i></button>
+      <button class="slider-next"><i class="fas fa-chevron-left"></i></button>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section">
+    <div class="container">
+      <h2 class="section-title">قائمتنا المميزة</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="images/pizza-margherita.jpg" alt="بيتزا مارغريتا">
+            <div class="card-body">
+              <h3 class="card-title">بيتزا مارغريتا</h3>
+              <p>صلصة طماطم، موزاريلا طازجة، ريحان</p>
+              <p class="price">45,000 ل.س</p>
+              <button class="btn-add-cart" data-id="1" data-name="بيتزا مارغريتا" data-price="45000" data-image="images/pizza-margherita.jpg">
+                <i class="fas fa-cart-plus ms-2"></i>أضف إلى السلة
+              </button>
+              <a href="pages/pizza-margherita.html" class="btn btn-outline-primary mt-2 d-block">التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="images/pizza-vegetables.jpg" alt="بيتزا خضروات">
+            <div class="card-body">
+              <h3 class="card-title">بيتزا الخضروات</h3>
+              <p>فلفل، زيتون، مشروم، بصل، طماطم</p>
+              <p class="price">50,000 ل.س</p>
+              <button class="btn-add-cart" data-id="2" data-name="بيتزا الخضروات" data-price="50000" data-image="images/pizza-vegetables.jpg">
+                <i class="fas fa-cart-plus ms-2"></i>أضف إلى السلة
+              </button>
+              <a href="pages/pizza-vegetables.html" class="btn btn-outline-primary mt-2 d-block">التفاصيل</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="product-card">
+            <img src="images/pizza-chicken.jpg" alt="بيتزا دجاج">
+            <div class="card-body">
+              <h3 class="card-title">بيتزا الدجاج</h3>
+              <p>دجاج مشوي، فلفل حار، جبنة موزاريلا</p>
+              <p class="price">55,000 ل.س</p>
+              <button class="btn-add-cart" data-id="3" data-name="بيتزا الدجاج" data-price="55000" data-image="images/pizza-chicken.jpg">
+                <i class="fas fa-cart-plus ms-2"></i>أضف إلى السلة
+              </button>
+              <a href="pages/pizza-chicken.html" class="btn btn-outline-primary mt-2 d-block">التفاصيل</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offers Section -->
+  <section class="offers-section">
+    <div class="container">
+      <h2 class="text-center mb-5">عروضنا المميزة</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="offer-card">
+            <span class="offer-badge">خصم 20%</span>
+            <h3>عرض العائلة</h3>
+            <p>بيتزا كبيرة + بيتزا متوسطة + مشروبات</p>
+            <p class="h4">99,000 ل.س فقط</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="offer-card">
+            <span class="offer-badge">جديد</span>
+            <h3>الوجبة المزدوجة</h3>
+            <p>بيتزتان + سلطتان + مشروبان</p>
+            <p class="h4">75,000 ل.س فقط</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="offer-card">
+            <span class="offer-badge">الأكثر مبيعًا</span>
+            <h3>البيتزا الذهبية</h3>
+            <p>بيتزا فاخرة بمكونات استثنائية</p>
+            <p class="h4">65,000 ل.س فقط</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="map-section" style="padding: 3rem 0; background: #f8f9fa;">
+    <div class="container">
+      <h2 class="text-center mb-4" style="color: #2c3e50; font-weight: 700;">
+        <i class="fas fa-map-marker-alt me-2" style="color: #e74c3c;"></i>
+        موقعنا
+      </h2>
+      <p class="text-center mb-4" style="color: #666;">
+        <i class="fas fa-location-arrow me-1" style="color: #e74c3c;"></i>
+        شارع الثورة، أبو رمانة، دمشق، سوريا
+      </p>
+      <div class="map-container" style="border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3323.538!2d36.2785!3d33.5138!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1518e0!2sAbou+Rummaneh!5e0!3m2!1sen!2ssy!4v1" 
+          width="100%" 
+          height="400" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h4>عن المطعم</h4>
+          <p>مطعم بيتزا إيطالي أصيل في أبو رمانة، دمشق، نقدم أطيب البيتزا منذ عام 1995.</p>
+        </div>
+        <div class="col-md-4">
+          <h4>روابط سريعة</h4>
+          <a href="pages/about.html">عن المطعم</a>
+          <a href="pages/contact.html">تواصل معنا</a>
+          <a href="pages/privacy.html">سياسة الخصوصية</a>
+          <a href="pages/careers.html">الوظائف</a>
+        </div>
+        <div class="col-md-4">
+          <h4>تواصل معنا</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>جميع الحقوق محفوظة © 2026 مطعم بيتزا إيطاليا - أبو رمانة، دمشق، سوريا</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    (function() {
+      // Override window.open
+      var originalOpen = window.open;
+      window.open = function(url, target, features) {
+        if (url) { window.location.href = url; }
+        return null;
+      };
+
+      // Remove all target="_blank" from links
+      document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+        link.removeAttribute('target');
+      });
+
+      // Prevent clicks from opening new tabs
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a');
+        if (link) {
+          var href = link.getAttribute('href');
+          var target = link.getAttribute('target');
+          if (target === '_blank' || e.button === 1 || e.ctrlKey || e.metaKey || e.shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (href && href !== '#') { window.location.href = href; }
+            return false;
+          }
+        }
+      }, true);
+
+      // Prevent middle click
+      document.addEventListener('auxclick', function(e) {
+        var link = e.target.closest('a');
+        if (link && e.button === 1) {
+          e.preventDefault();
+          e.stopPropagation();
+          var href = link.getAttribute('href');
+          if (href && href !== '#') { window.location.href = href; }
+          return false;
+        }
+      }, true);
+
+      // Prevent context menu "Open in new tab"
+      document.addEventListener('contextmenu', function(e) {
+        var link = e.target.closest('a');
+        if (link) {
+          // We can't prevent the context menu, but we can remove target
+          link.removeAttribute('target');
+        }
+      }, true);
+    })();
+  </script>
+
+
+  <script>
+    (function() {
+      window.open = function(url, target, features) {
+        if (url) { window.location.href = url; }
+        return null;
+      };
+      document.querySelectorAll('a[target="_blank"]').forEach(function(link) {
+        link.removeAttribute('target');
+      });
+      document.addEventListener('click', function(e) {
+        var link = e.target.closest('a');
+        if (link) {
+          var href = link.getAttribute('href');
+          var target = link.getAttribute('target');
+          if (target === '_blank' || e.button === 1 || e.ctrlKey || e.metaKey || e.shiftKey) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (href && href !== '#') { window.location.href = href; }
+            return false;
+          }
+        }
+      }, true);
+      document.addEventListener('auxclick', function(e) {
+        var link = e.target.closest('a');
+        if (link && e.button === 1) {
+          e.preventDefault();
+          e.stopPropagation();
+          var href = link.getAttribute('href');
+          if (href && href !== '#') { window.location.href = href; }
+          return false;
+        }
+      }, true);
+    })();
+  </script>
+
+</body>
+</html>

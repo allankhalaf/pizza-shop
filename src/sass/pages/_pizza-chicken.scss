@@ -1,0 +1,8 @@
+@use '../base/variables';
+@use "sass:color";
+
+.page-chicken {
+  .product-header {
+    background: linear-gradient(135deg, variables.$chicken-color, color.adjust(variables.$chicken-color, $lightness: -15%));
+  }
+}

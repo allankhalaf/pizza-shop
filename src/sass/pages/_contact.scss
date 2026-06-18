@@ -1,0 +1,13 @@
+@use '../base/variables';
+
+.contact-section {
+  padding: variables.$spacing-xl 0;
+  
+  .card {
+    transition: transform 0.3s;
+    
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}

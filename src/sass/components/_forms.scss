@@ -1,0 +1,10 @@
+@use '../base/variables';
+
+.contact-form {
+  .form-control {
+    &:focus {
+      border-color: variables.$primary-color;
+      box-shadow: 0 0 0 0.2rem rgba(variables.$primary-color, 0.25);
+    }
+  }
+}

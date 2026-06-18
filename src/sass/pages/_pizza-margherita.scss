@@ -1,0 +1,8 @@
+@use '../base/variables';
+@use "sass:color";
+
+.page-margherita {
+  .product-header {
+    background: linear-gradient(135deg, variables.$margherita-color, color.adjust(variables.$margherita-color, $lightness: -15%));
+  }
+}
