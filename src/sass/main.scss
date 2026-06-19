@@ -352,8 +352,121 @@ h1, h2, h3, h4, h5, h6,
   50% { transform: scale(1.1); }
 }
 
+
 // ============================================
-// Offers Section
+// ✅ Video Background for Offers Section
+// ============================================
+
+.offers-section {
+  position: relative;
+  overflow: hidden;
+  padding: 5rem 0 !important;
+
+  .video-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    background: #1a1a2e;
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  h2 {
+    font-family: $font-family-heading;
+    color: #fff !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.8), 0 0 30px rgba(0,0,0,0.5) !important;
+    font-weight: 800 !important;
+    font-size: 2.8rem !important;
+    margin-bottom: 3rem !important;
+    text-align: center;
+  }
+
+  .offer-card {
+    background: rgba(255, 255, 255, 0.97) !important;
+    border-radius: 20px;
+    padding: 2.5rem 1.5rem;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    z-index: 2;
+    border: 2px solid rgba(255,255,255,0.2);
+
+    &:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    }
+
+    h3 {
+      font-family: $font-family-heading;
+      color: #2c3e50;
+      font-weight: 800;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-family: $font-family-base;
+      color: #555;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .h4 {
+      font-family: $font-family-base;
+      color: #e74c3c;
+      font-weight: 900;
+      font-size: 2rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  .offer-badge {
+    font-family: $font-family-base;
+    display: inline-block;
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 0.5rem 1.2rem;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+  }
+}
+
+// ============================================
+// ============================================
+// Offers Section (Original - Modified for Video)
 // ============================================
 
 .offers-section {
@@ -555,28 +668,132 @@ h1, h2, h3, h4, h5, h6,
   text-decoration: none !important;
 }
 
+
 // ============================================
-// Map Section Styles
+// ✅ Promo Video Section
 // ============================================
 
-.map-section {
-  background: #f8f9fa;
-  padding: 3rem 0;
+.promo-video-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+
+  h2 {
+    font-family: $font-family-heading;
+    color: #2c3e50;
+    font-weight: 800;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-family: $font-family-base;
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  .video-wrapper {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 20px;
+    }
+
+    .video-play-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s, background 0.3s;
+      border-radius: 20px;
+
+      i {
+        font-size: 5rem;
+        color: #fff;
+        opacity: 0.9;
+        transition: transform 0.3s, opacity 0.3s;
+        text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.25);
+
+        i {
+          transform: scale(1.15);
+          opacity: 1;
+        }
+      }
+
+      &.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &.playing {
+      .video-play-overlay {
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+
+    &.paused {
+      .video-play-overlay {
+        opacity: 1;
+        pointer-events: auto;
+
+        i {
+          font-size: 5rem;
+        }
+      }
+    }
+  }
 }
 
-.map-section h2 {
-  font-family: $font-family-heading;
-  color: #2c3e50;
-  font-weight: 700;
+@media (max-width: 768px) {
+  .promo-video-section {
+    padding: 3rem 0;
+
+    h2 {
+      font-size: 1.6rem;
+    }
+
+    .video-wrapper {
+      border-radius: 15px;
+      margin: 0 1rem;
+
+      video {
+        border-radius: 15px;
+      }
+
+      .video-play-overlay {
+        border-radius: 15px;
+
+        i {
+          font-size: 3.5rem;
+        }
+      }
+    }
+  }
 }
 
-.map-container {
-  border-radius: 15px;
-  overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.map-container iframe {
-  width: 100%;
-  border: 0;
-}
+// ============================================

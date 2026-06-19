@@ -1,3 +1,120 @@
+
+// ============================================
+// ✅ Promo Video Click to Play/Pause
+// ============================================
+
+function initPromoVideo() {
+  const videoWrapper = document.querySelector('.video-wrapper');
+  const video = document.getElementById('promoVideo');
+  const overlay = document.getElementById('videoPlayOverlay');
+
+  if (!video || !videoWrapper || !overlay) return;
+
+  // كتم الصوت افتراضياً
+  video.muted = true;
+  video.volume = 0;
+
+  // تحديث أيقونة التشغيل
+  function updateOverlayIcon(isPlaying) {
+    const icon = overlay.querySelector('i');
+    if (isPlaying) {
+      icon.className = 'fas fa-pause';
+      overlay.classList.add('hidden');
+      videoWrapper.classList.add('playing');
+      videoWrapper.classList.remove('paused');
+    } else {
+      icon.className = 'fas fa-play';
+      overlay.classList.remove('hidden');
+      videoWrapper.classList.remove('playing');
+      videoWrapper.classList.add('paused');
+    }
+  }
+
+  // النقر على الفيديو للتشغيل/الإيقاف
+  videoWrapper.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    if (video.paused || video.ended) {
+      video.play().then(() => {
+        updateOverlayIcon(true);
+        console.log('✅ Promo video playing');
+      }).catch((err) => {
+        console.log('❌ Video play failed:', err);
+      });
+    } else {
+      video.pause();
+      updateOverlayIcon(false);
+      console.log('⏸️ Promo video paused');
+    }
+  });
+
+  // عند انتهاء الفيديو
+  video.addEventListener('ended', function() {
+    updateOverlayIcon(false);
+    console.log('✅ Promo video ended');
+  });
+
+  // عند التشغيل
+  video.addEventListener('play', function() {
+    updateOverlayIcon(true);
+  });
+
+  // عند الإيقاف
+  video.addEventListener('pause', function() {
+    if (!video.ended) {
+      updateOverlayIcon(false);
+    }
+  });
+
+  // الحالة الأولية
+  updateOverlayIcon(false);
+}
+
+
+// ============================================
+// ✅ Video Background Autoplay Fix
+// ============================================
+
+function initVideoBackground() {
+  const video = document.getElementById('offersVideo');
+  if (!video) return;
+
+  // كتم الصوت (مطلوب للتشغيل التلقائي)
+  video.muted = true;
+  video.volume = 0;
+
+  // محاولة التشغيل فوراً
+  const playPromise = video.play();
+
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      console.log('✅ Video playing successfully');
+    }).catch((error) => {
+      console.log('⚠️ Autoplay prevented, waiting for interaction...');
+
+      // محاولة التشغيل عند أول تفاعل
+      const playOnInteraction = () => {
+        video.play().then(() => {
+          console.log('✅ Video started after interaction');
+        }).catch((e) => {
+          console.log('❌ Video play failed:', e);
+        });
+      };
+
+      document.addEventListener('click', playOnInteraction, { once: true });
+      document.addEventListener('scroll', playOnInteraction, { once: true });
+      document.addEventListener('touchstart', playOnInteraction, { once: true });
+    });
+  }
+
+  // إعادة التشغيل إذا توقف
+  video.addEventListener('pause', () => {
+    if (!video.ended && video.readyState >= 2) {
+      video.play();
+    }
+  });
+}
+
 // ============================================
 // src/js/main.js - سلة + كاروسيل
 // ============================================
@@ -185,6 +302,12 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // تفعيل Slider
   initSlider();
+  
+  // تفعيل خلفية الفيديو
+  initVideoBackground();
+  
+  // تفعيل الفيديو الترويجي
+  initPromoVideo();
 });
 
 export { cart, addToCart, updateCartCount };
