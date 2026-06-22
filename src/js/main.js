@@ -310,4 +310,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initPromoVideo();
 });
 
+
+
 export { cart, addToCart, updateCartCount };
