@@ -152,7 +152,50 @@ plugins: [
       inject: 'head',
       chunks: ['main'],
       publicPath: '../'
-    })
+    }),
+    // admin pages
+new HtmlWebpackPlugin({
+  template: './admin/dashboard.html',
+  filename: 'admin/dashboard.html',
+  inject: 'head',
+  chunks: ['main'],
+  publicPath: '../'
+}),
+new HtmlWebpackPlugin({
+  template: './admin/products.html',
+  filename: 'admin/products.html',
+  inject: 'head',
+  chunks: ['main'],
+  publicPath: '../'
+}),
+new HtmlWebpackPlugin({
+  template: './admin/orders.html',
+  filename: 'admin/orders.html',
+  inject: 'head',
+  chunks: ['main'],
+  publicPath: '../'
+}),
+new HtmlWebpackPlugin({
+  template: './admin/customers.html',
+  filename: 'admin/customers.html',
+  inject: 'head',
+  chunks: ['main'],
+  publicPath: '../'
+}),
+new HtmlWebpackPlugin({
+  template: './admin/reviews.html',
+  filename: 'admin/reviews.html',
+  inject: 'head',
+  chunks: ['main'],
+  publicPath: '../'
+}),
+new HtmlWebpackPlugin({
+  template: './admin/settings.html',
+  filename: 'admin/settings.html',
+  inject: 'head',
+  chunks: ['main'],
+  publicPath: '../'
+}),
   ],
   
   devServer: {

@@ -358,13 +358,13 @@
                   <label style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem; display: block;">
                     <i class="fas fa-user me-1" style="color: #e74c3c;"></i> الاسم الكامل
                   </label>
-                  <input type="text" class="form-control" id="contactName" placeholder="أدخل اسمك الكامل" required style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
+                  <input type="text" class="form-control" id="contactName" name="name" placeholder="أدخل اسمك الكامل" required style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
                 </div>
                 <div class="col-md-6 mb-3">
                   <label style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem; display: block;">
                     <i class="fas fa-phone me-1" style="color: #e74c3c;"></i> رقم الهاتف
                   </label>
-                  <input type="tel" class="form-control" id="contactPhone" placeholder="09xxxxxxxx" required style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
+                  <input type="tel" class="form-control" id="contactPhone" name="phone" placeholder="09xxxxxxxx" required style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
                 </div>
               </div>
 
@@ -373,13 +373,13 @@
                   <label style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem; display: block;">
                     <i class="fas fa-envelope me-1" style="color: #e74c3c;"></i> البريد الإلكتروني
                   </label>
-                  <input type="email" class="form-control" id="contactEmail" placeholder="example@email.com" style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
+                  <input type="email" class="form-control" id="contactEmail" name="email" placeholder="example@email.com" style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
                 </div>
                 <div class="col-md-6 mb-3">
                   <label style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem; display: block;">
                     <i class="fas fa-tag me-1" style="color: #e74c3c;"></i> نوع الرسالة
                   </label>
-                  <select class="form-control" id="contactSubject" style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
+                  <select class="form-control" id="contactSubject" name="subject" style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
                     <option value="">اختر نوع الرسالة</option>
                     <option value="order">استفسار عن طلب</option>
                     <option value="complaint">شكوى</option>
@@ -394,7 +394,7 @@
                 <label style="font-weight: 600; color: #2c3e50; margin-bottom: 0.5rem; display: block;">
                   <i class="fas fa-comment me-1" style="color: #e74c3c;"></i> الرسالة
                 </label>
-                <textarea class="form-control" id="contactMessage" rows="5" placeholder="اكتب رسالتك هنا..." required style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;"></textarea>
+                <textarea class="form-control" id="contactMessage" name="message" rows="5" placeholder="اكتب رسالتك هنا..." required style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;"></textarea>
               </div>
 
               <div class="text-center">
@@ -417,6 +417,47 @@
               loading="lazy" 
               referrerpolicy="no-referrer-when-downgrade">
             </iframe>
+          </div>
+
+          <div class="review-card mt-5" style="background: #fff; border-radius: 15px; padding: 2rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+            <h3 class="mb-4" style="color: #2c3e50; font-weight: 700;">
+              <i class="fas fa-star me-2" style="color: #e74c3c;"></i>
+              شاركنا تقييمك
+            </h3>
+
+            <form id="review-form">
+              <div class="mb-3">
+                <div class="d-flex align-items-center gap-2" style="flex-wrap: wrap;">
+                  <button type="button" class="star-input far fa-star" data-rating="1" aria-label="1 نجمة"></button>
+                  <button type="button" class="star-input far fa-star" data-rating="2" aria-label="2 نجوم"></button>
+                  <button type="button" class="star-input far fa-star" data-rating="3" aria-label="3 نجوم"></button>
+                  <button type="button" class="star-input far fa-star" data-rating="4" aria-label="4 نجوم"></button>
+                  <button type="button" class="star-input far fa-star" data-rating="5" aria-label="5 نجوم"></button>
+                </div>
+                <input type="hidden" id="rating-value" name="rating">
+              </div>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <input type="text" class="form-control" name="name" placeholder="اسمك" required style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
+                </div>
+                <div class="col-md-6 mb-3">
+                  <input type="email" class="form-control" name="email" placeholder="البريد الإلكتروني" style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;">
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <textarea class="form-control" name="comment" rows="4" placeholder="اكتب تعليقك..." required style="border-radius: 10px; padding: 0.75rem; border: 2px solid #e9ecef;"></textarea>
+              </div>
+
+              <div class="text-center">
+                <button type="submit" class="btn" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); color: white; padding: 0.875rem 3rem; border-radius: 50px; font-weight: 600; border: none; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3); transition: all 0.3s;">
+                  إرسال التقييم
+                </button>
+              </div>
+            </form>
+
+            <div id="reviews-container" class="mt-4"></div>
           </div>
         </div>
       </div>

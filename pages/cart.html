@@ -542,7 +542,7 @@
       <h2 class="text-center mb-5">سلة المشتريات</h2>
       
       <div id="cart-items" class="row">
-        <!-- سيتم ملؤها بواسطة JavaScript -->
+    
       </div>
       
       <div id="cart-empty" class="text-center py-5" style="display: none;">
@@ -612,10 +612,13 @@
       emptyMsg.style.display = 'none';
       summary.style.display = 'block';
       
-      let total = 0;
-      container.innerHTML = cart.map(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
+    let total = 0;
+
+container.innerHTML = cart.map(item => {
+  const itemTotal =
+    Number(item.price) * Number(item.quantity);
+
+  total += itemTotal;
         
         return `
           <div class="col-md-4 mb-4">
@@ -641,7 +644,8 @@
         `;
       }).join('');
       
-      totalEl.textContent = total + ' ل.س';
+     subtotalEl.textContent = total.toLocaleString() + ' ل.س';
+totalEl.textContent = total.toLocaleString() + ' ل.س';
 
       // Update cart badge
       const badge = document.getElementById('cart-badge');

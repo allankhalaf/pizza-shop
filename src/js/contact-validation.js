@@ -1,5 +1,7 @@
 $(document).ready(function() {
-  $('#contact-form').on('submit', function(e) {
+  const $contactForm = $('#contactForm, #contact-form');
+
+  $contactForm.on('submit', function(e) {
     e.preventDefault();
     
     if (validateForm()) {
@@ -7,7 +9,7 @@ $(document).ready(function() {
     }
   });
 
-  $('#contact-form input, #contact-form textarea').on('blur', function() {
+  $contactForm.find('input, textarea').on('blur', function() {
     validateField($(this));
   });
 });
@@ -15,7 +17,7 @@ $(document).ready(function() {
 function validateForm() {
   let isValid = true;
   
-  $('#contact-form input[required], #contact-form textarea[required]').each(function() {
+  $('#contactForm input[required], #contactForm textarea[required], #contact-form input[required], #contact-form textarea[required]').each(function() {
     if (!validateField($(this))) {
       isValid = false;
     }

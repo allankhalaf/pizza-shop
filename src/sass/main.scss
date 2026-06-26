@@ -3,6 +3,14 @@
 // ============================================
 
 @use "sass:color";
+@use "components/_buttons";
+@use "components/_forms";
+@use "components/_navbar";
+@use "components/_product-card";
+@use "pages/_contact";
+@use "pages/_pizza-margherita";
+@use "pages/_pizza-chicken";
+@use "pages/_pizza-vegetables";
 
 // ============================================
 // ✅ استيراد خط Cairo من Google Fonts
@@ -324,6 +332,57 @@ h1, h2, h3, h4, h5, h6,
     background-color: #e74c3c;
     color: white;
   }
+}
+
+.size-btn {
+  transition: all 0.2s ease;
+}
+
+.size-btn:hover,
+.size-btn.active:hover,
+.btn-outline-primary.size-btn:hover {
+  background: #e74c3c !important;
+  color: white !important;
+  border-color: #e74c3c !important;
+}
+
+.size-btn.active {
+  background: #e74c3c !important;
+  color: white !important;
+}
+
+.star-input {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #e9ecef;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: #ccc;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.star-input:hover,
+.star-input.fas {
+  color: #f1c40f;
+  border-color: #f1c40f;
+  transform: translateY(-2px);
+}
+
+.review-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.review-card .form-control {
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
 }
 
 // ============================================
